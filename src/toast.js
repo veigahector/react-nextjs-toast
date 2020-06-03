@@ -8,7 +8,7 @@ import { render, unmountComponentAtNode } from 'react-dom'
 // Hey, I am toast component 
 const Toast = ( props ) => {
   return (
-    <div className="toast-message-container">
+    <div className={`toast-message-container ${props.type}`}>
       <div className="side-bar"></div>
       <div id="toast-message" className="toast-message">
         {/* Message to be added here */}
@@ -102,7 +102,9 @@ export const toast = {
       slideIn={true} 
       color={ color || null }
       transitionPercentage={trasitionPercentage} 
-      duration={duration} />, document.getElementById('toast-container'));
+      duration={duration} 
+      type={options.type || ''}
+    />, document.getElementById('toast-container'));
     toast.currentToast = true
     toast.timeout = setTimeout( toast.remove, duration*1000)
   }
