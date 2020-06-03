@@ -55,7 +55,7 @@ const Toast = ( props ) => {
           max-width: 400px;
           box-shadow: 0px 0px 30px #0000001f;
           margin: 0px auto;
-          border-radius: 4px;
+          border-radius: 0 4px 4px 0;
           display: flex;
           animation: SlideInOut ${props.duration}s ease-in-out;
         }
