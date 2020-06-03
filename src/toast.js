@@ -53,7 +53,7 @@ const Toast = ( props ) => {
         .toast-message-container {
           color: ${ props.color || 'grey' };
           max-width: 400px;
-          box-shadow: 0px 0px 30px #0000001f;
+          box-shadow: 1px 1px 10px #888888;
           margin: 0px auto;
           border-radius: 0 4px 4px 0;
           display: flex;
