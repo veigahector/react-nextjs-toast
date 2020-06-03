@@ -8,7 +8,7 @@ import { render, unmountComponentAtNode } from 'react-dom'
 // Hey, I am toast component 
 const Toast = ( props ) => {
   return (
-    <div className={`toast-message-container ${props.type}`}>
+    <div className={`toast-message-container type-${props.type} ${props.className}`}>
       <div className="side-bar"></div>
       <div id="toast-message" className="toast-message">
         {/* Message to be added here */}
@@ -79,9 +79,13 @@ export const toast = {
     
     let duration = 5
     let type = 'default'
+    let className = ''
+
     if( options ){
       if( options.duration)
         duration = options.duration
+      if (options.className && options.className.trim())
+        className = options.className
       if (options.type && options.type.trim())
         type = options.type
       if( options.type === "success") 
@@ -106,6 +110,7 @@ export const toast = {
       transitionPercentage={trasitionPercentage} 
       duration={duration} 
       type={type}
+      className={className}
     />, document.getElementById('toast-container'));
     toast.currentToast = true
     toast.timeout = setTimeout( toast.remove, duration*1000)
