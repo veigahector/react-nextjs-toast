@@ -64,24 +64,40 @@ class Card extends React.Component {
 
 # Options
 
-The toast has 4 types of default events - info, success, error and warning and also supports custom duration.
+The toast has 4 types of default events - default, info, success, danger, warning and custom-type. 
+Supports custom duration.
 
 
 | property | description | Data Type |
 |----------|-------------|-------|
-| duration | Number of seconds to show toast on screen | *Integer* |
-| type     | Type of toast - info, error, success and warning | *String*|
+| duration  | Number of seconds to show toast on screen | *Integer* |
+| type      | Type of toast - info, danger, success, warning and custom-type | *String*|
+| className | You are able to provide a custom className, with this you will be able to utilize css | *String*|
+| color     | Custom color for the theme, it will modify the border color, as well as the font color, you can provide a Hex code ('#ff0000') or a real CSS colour name (red)  | *String*|
 
 
 
 For example, to show success toast that lasts for 5 seconds.
 ```
-toast.notify('This is a success toast', {
+toast.notify("This is a success toast", {
   duration: 5,
-  type: "success"
+  type: "success",
+  color: "#ff0000",
+  className: "my-custom-css-class"
 })
 ```
 
+```
+will render the following toast:
+<div id="toast-container" class="jsx-2954286552 toast-container type-success my-custom-css-class">
+  <div class="jsx-1641492115 jsx-75005581 toast-message-container ">
+    <div class="jsx-1641492115 jsx-75005581 side-bar"></div>
+    <div id="toast-message" class="jsx-1641492115 jsx-75005581 toast-message">
+      This is a success toast
+    </div>
+  </div>
+</div>
+```
 ----
 
 # Todo

@@ -79,34 +79,37 @@ export const toast = {
     
     let duration = 5
     let type = 'default'
+    let color = '#007bff'
     let className = ''
 
     if( options ){
-      if( options.duration)
+      if(options.duration)
         duration = options.duration
       if (options.className && options.className.trim())
         className = options.className
       if (options.type && options.type.trim())
         type = options.type
-      if( options.type === "success") 
-        color = 'green'
-      if( options.type === "error") 
-        color = 'red'
-      if( options.type === "warn") 
-        color = 'orange'
+      if(type === "info")
+        color = '#17a2b8'
+      if(type === "success") 
+        color = '#28a745'
+      if(type === "danger") 
+        color = '#dc3545'
+      if(type === "warning")
+        color = '#ffc107'
       if(options.color)
         color = options.color
     } 
 
     if(toast.currentToast) { 
       toast.remove()
-
     }
+
     let trasitionPercentage = 0.3*(100/duration)
     render(<Toast 
       message={message} 
       slideIn={true} 
-      color={ color || null }
+      color={ color }
       transitionPercentage={trasitionPercentage} 
       duration={duration} 
       type={type}
