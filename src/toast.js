@@ -90,6 +90,8 @@ export const toast = {
         color = 'red'
       if( options.type === "warn") 
         color = 'orange'
+      if(options.color)
+        color = options.color
     } 
 
     if(toast.currentToast) { 
