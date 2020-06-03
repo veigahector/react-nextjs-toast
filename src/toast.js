@@ -78,12 +78,12 @@ export const toast = {
   notify: ( message , options = null) =>{
     
     let duration = 5
-    let color = 'grey'
+    let type = 'default'
     if( options ){
       if( options.duration)
         duration = options.duration
-      if( options.type === "info") 
-        color = 'grey'
+      if (options.type && options.type.trim())
+        type = options.type
       if( options.type === "success") 
         color = 'green'
       if( options.type === "error") 
@@ -105,7 +105,7 @@ export const toast = {
       color={ color || null }
       transitionPercentage={trasitionPercentage} 
       duration={duration} 
-      type={options.type || ''}
+      type={type}
     />, document.getElementById('toast-container'));
     toast.currentToast = true
     toast.timeout = setTimeout( toast.remove, duration*1000)
